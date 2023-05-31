@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 from .my_settings import MY_SECRET, MY_DATABASES
 from django.core.exceptions import ImproperlyConfigured
@@ -42,7 +43,7 @@ SLACK_INFO = get_secret("slack")
 DATABASES = MY_DATABASES
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
@@ -134,7 +135,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    os.path.join(BASE_DIR,'static'),
 ]
 
 # Default primary key field type
